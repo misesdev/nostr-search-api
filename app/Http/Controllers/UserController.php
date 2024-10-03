@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
+use App\Services\EngineScopes;
+
+use App\Services\NostrService;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -18,7 +20,7 @@ class UserController extends Controller
             return response()->json($validate->errors(), 403);
         }
 
-        $response = Http::post("http://192.168.0.11:8080/get_user", $validate->valid());
+        $response = NostrService::Run(EngineScopes::GetUser, $validate->valid());
 
         return $response->json();
     }
@@ -34,7 +36,7 @@ class UserController extends Controller
             return response()->json($validate->errors(), 403);
         }
 
-        $response = Http::post("http://192.168.0.11:8080/get_friends", $validate->valid());
+        $response = NostrService::Run(EngineScopes::GetFriends, $validate->valid());
 
         return $response->json();
     }
