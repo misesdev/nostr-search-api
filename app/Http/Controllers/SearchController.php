@@ -13,7 +13,7 @@ class SearchController extends Controller
     function index(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'pubkey' => ['required', 'max:64', 'min:64'],
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
             'searchTerm' => ['required', 'min:3', 'max:100'],
             'limit' => ['numeric', 'min:1', 'max:100']
         ]);
@@ -31,7 +31,7 @@ class SearchController extends Controller
     function friends(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'pubkey' => ['required', 'max:64', 'min:64'],
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
             'searchTerm' => ['required', 'min:3', 'max:100'],
             'limit' => ['numeric', 'min:1', 'max:100']
         ]);

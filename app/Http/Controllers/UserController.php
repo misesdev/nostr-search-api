@@ -12,7 +12,7 @@ class UserController extends Controller
     function index(string $pubkey)
     {
         $validate = Validator::make([ 'pubkey' => $pubkey ], [
-            'pubkey' => ['required', 'max:64', 'min:64']
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
         ]);
 
         if($validate->fails())
@@ -26,7 +26,7 @@ class UserController extends Controller
     function friends(string $pubkey)
     {
         $validate = Validator::make([ 'pubkey' => $pubkey ], [
-            'pubkey' => ['required', 'max:64', 'min:64']
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
         ]);
 
         if($validate->fails())
@@ -42,7 +42,7 @@ class UserController extends Controller
         $validate = Validator::make($request->all(), [
             'name' => ['required', 'min:3', 'max:45'],
             'displayName' => ['required', 'min:3', 'max:45'],
-            'pubkey' => ['required', 'max:64', 'min:64'],
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
             'profile' => ['required', 'max:150']
         ]);
 
@@ -57,9 +57,9 @@ class UserController extends Controller
     function add_friends(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'pubkey' => ['required', 'min:64', 'max:64'],
+            'pubkey' => ['required', 'size:64', 'regex:/^[a-fA-F0-9]+$/'],
             'friends' => ['required', 'array'],
-            'friends.*' => ['string', 'min:64', 'max:64']
+            'friends.*' => ['string', 'size:64', 'regex:/^[a-fA-F0-9]+$/']
         ]);
 
         if($validate->fails())
