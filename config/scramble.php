@@ -76,7 +76,9 @@ return [
      * ],
      * ```
      */
-    'servers' => null,
+    'servers' => [
+        'Prod' => "https://find.nosbook.org"
+    ],
 
     'middleware' => [
         'web',
