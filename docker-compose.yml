@@ -3,12 +3,14 @@ version: '3.1'
 services:
     api-search:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.1
+            context: .
+            dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP:-1000}'
         network_mode: 'host'
-        ports:
-            - '8001:80'
         mem_limit: 750m
-
+        volumes:
+            - .:/var/www/html
+        environment:
+            APACHE_PORT: 8001
 
