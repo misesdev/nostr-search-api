@@ -77,7 +77,7 @@ return [
      * ```
      */
     'servers' => [
-        'Prod' => "https://find.nosbook.org"
+        'Prod' => "https://find.nosbook.org/api"
     ],
 
     'middleware' => [
