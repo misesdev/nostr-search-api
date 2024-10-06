@@ -29,7 +29,7 @@ return [
         /*
          * Description rendered on the home page of the API documentation (`/docs/api`).
          */
-        'description' => '',
+        'description' => 'An api for search on Nostr Protocol',
     ],
 
     /*
@@ -39,7 +39,7 @@ return [
         /*
          * Define the title of the documentation's website. App name is used when this config is `null`.
          */
-        'title' => null,
+        'title' => "Nostr Search Engine",
 
         /*
          * Define the theme of the documentation. Available options are `light` and `dark`.
@@ -54,7 +54,7 @@ return [
         /*
          * URL to an image that displays as a small square logo next to the title, above the table of contents.
          */
-        'logo' => '',
+        'logo' => 'https://find.nosbook.org/favicon.ico',
 
         /*
          * Use to fetch the credential policy for the Try It feature. Options are: omit, include (default), and same-origin
